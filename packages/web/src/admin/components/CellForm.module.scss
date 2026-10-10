@@ -1,0 +1,13 @@
+@use '../../styles/variables' as *;
+
+/* В окне поля стоят сеткой: на узком экране складываются в столбик сами */
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: $space-3;
+}
+
+.actions {
+  display: flex;
+  gap: $space-3;
+}

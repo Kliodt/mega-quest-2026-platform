@@ -1,0 +1,38 @@
+{
+  "name": "@quest/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p .",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@quest/shared": "*",
+    "@tanstack/react-query": "^5.102.8",
+    "barcode-detector": "^3.2.2",
+    "classnames": "^2.5.1",
+    "http-status": "^2.1.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router": "^8.3.1",
+    "zxing-wasm": "^3.1.3"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "^10.6.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "sass": "^1.104.1",
+    "storybook": "^10.6.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.0"
+  }
+}

@@ -1,0 +1,22 @@
+/* Начертания квеста. Файлы лежат в public/fonts и копируются в сборку как есть. */
+
+@font-face {
+  font-family: 'Druk Text Wide Cyr';
+  src:
+    url('/fonts/Druk-Text-Wide-Cyr-Medium.woff2') format('woff2'),
+    url('/fonts/Druk-Text-Wide-Cyr-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Переменный шрифт: одна запись на весь диапазон насыщенности */
+@font-face {
+  font-family: 'Raleway';
+  src:
+    url('/fonts/Raleway-VariableFont_wght.woff2') format('woff2'),
+    url('/fonts/Raleway-VariableFont_wght.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

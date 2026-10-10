@@ -1,0 +1,6 @@
+# Что везём на сервер помимо git: данные квеста и тяжёлую статику.
+# Одной командой: rsync -avr --progress --files-from=deploy/server-files.txt ./ сервер:~/quest_platform/
+packages/api/src/setup/teams.csv
+packages/api/src/setup/bindings.csv
+packages/api/src/setup/questions/
+packages/web/public/yandex_files/

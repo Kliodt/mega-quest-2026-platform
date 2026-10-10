@@ -1,0 +1,51 @@
+@use '../ui/styles/mixins' as *;
+@use '../ui/styles/tokens' as *;
+
+.target {
+  @include bare-button;
+  @include motion(color, background);
+  @include focus-ring;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 190px;
+  padding: $q-space-6 $q-space-5;
+  border-radius: $q-radius;
+  /* Плотная подложка: сквозь прозрачную просвечивали звёзды фона */
+  background: rgba(10, 24, 66, 0.82);
+  color: $q-text-inverse;
+  cursor: pointer;
+}
+
+.target:hover:not(:disabled),
+.target:active:not(:disabled) {
+  background: rgba(20, 48, 118, 0.88);
+}
+
+.target:disabled {
+  color: $q-muted;
+  cursor: progress;
+}
+
+/* Уголки растягиваются вместе с кнопкой, толщина линии остаётся прежней */
+.frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: $q-primary;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.label {
+  font-family: $q-font-display;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 5.5vw, 1.5rem);
+  text-transform: uppercase;
+  text-shadow: 0.03em 0.035em 0 $q-primary;
+}

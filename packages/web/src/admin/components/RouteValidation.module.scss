@@ -1,0 +1,32 @@
+@use '../../styles/variables' as *;
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-3;
+}
+
+.ok {
+  margin: 0;
+  color: $color-success;
+}
+
+.bad {
+  margin: 0;
+  color: $color-danger;
+}
+
+.problems {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.list {
+  margin: 0;
+  padding-left: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}

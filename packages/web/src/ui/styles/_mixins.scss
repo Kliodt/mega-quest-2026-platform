@@ -1,0 +1,30 @@
+@use './tokens' as *;
+
+/* Фокус с клавиатуры: браузерная обводка на тёмном фоне почти не видна */
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $q-focus;
+    outline-offset: 2px;
+    box-shadow: $q-focus-ring;
+  }
+}
+
+/* Переход, который выключается у тех, кто просит меньше движения */
+@mixin motion($properties...) {
+  @media (prefers-reduced-motion: no-preference) {
+    transition-property: $properties;
+    transition-duration: 0.16s;
+    transition-timing-function: ease;
+  }
+}
+
+/* Кнопка без собственного оформления: остаётся только содержимое */
+@mixin bare-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+}

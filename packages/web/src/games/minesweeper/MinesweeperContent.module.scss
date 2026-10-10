@@ -1,0 +1,93 @@
+@use '../../ui/styles/tokens' as *;
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-3;
+}
+
+/* Переключатель способа выбора клетки: три кнопки в ряд */
+.modes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $q-space-2;
+}
+
+/* Камера квадратная, но не во весь экран: под ней должны поместиться поле и кнопки */
+.camera > * {
+  margin: 0 auto;
+  width: min(30vh, 100%);
+}
+
+/* Какая клетка сейчас под прицелом: подпись прямо под камерой */
+.selection {
+  margin: 0;
+  color: $q-text;
+  font-weight: 600;
+  text-align: center;
+}
+
+.counters {
+  display: flex;
+  justify-content: space-between;
+  gap: $q-space-3;
+  margin: 0;
+  color: $q-muted;
+  font-size: $q-size-small;
+}
+
+.field {
+  display: grid;
+  gap: 3px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 360px;
+}
+
+/* Нажимаются клетки только в ручном режиме: в остальных их выбирает скан кода */
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 1px solid $q-border;
+  border-radius: $q-radius-sm;
+  background: rgba(255, 255, 255, 0.07);
+  color: $q-text;
+  font-weight: 700;
+  font-size: $q-size-small;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.cell:disabled {
+  cursor: default;
+  color: $q-text;
+}
+
+/* Открытая клетка проваливается вглубь поля, но сетка остаётся видимой */
+.opened {
+  border-color: rgba(140, 175, 255, 0.08);
+  background: rgba(2, 5, 13, 0.5);
+  color: #b9ccff;
+}
+
+.blown {
+  border-color: rgba(255, 107, 107, 0.7);
+  background: rgba(255, 107, 107, 0.16);
+}
+
+/* Отсканированная клетка: её и откроет кнопка */
+.selected {
+  border-color: $q-focus;
+  box-shadow: $q-focus-ring;
+}
+
+/* Обе кнопки в ряд: экран маленький, а камера с полем должны остаться над ними */
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $q-space-3;
+}

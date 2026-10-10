@@ -1,0 +1,55 @@
+@use './styles/tokens' as *;
+
+.decor {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Под длинным текстом узор приглушён: читаемость важнее оформления */
+.quiet {
+  opacity: 0.3;
+}
+
+/* Углы прибиты к краям экрана, а размер тянется за шириной окна */
+.topRight,
+.bottomLeft {
+  position: absolute;
+  width: clamp(260px, 44vw, 580px);
+  height: clamp(260px, 44vw, 580px);
+  fill: none;
+  stroke: rgba(226, 234, 255, 0.4);
+  stroke-width: 1.4;
+}
+
+/* Линии гуще у самого угла и растворяются к центру: иначе видно, где их обрезал край блока */
+.topRight {
+  top: 0;
+  right: 0;
+  -webkit-mask-image: radial-gradient(circle at 100% 0%, #000 35%, transparent 78%);
+  mask-image: radial-gradient(circle at 100% 0%, #000 35%, transparent 78%);
+}
+
+.bottomLeft {
+  bottom: 0;
+  left: 0;
+  -webkit-mask-image: radial-gradient(circle at 0% 100%, #000 35%, transparent 78%);
+  mask-image: radial-gradient(circle at 0% 100%, #000 35%, transparent 78%);
+}
+
+.star {
+  position: absolute;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+}
+
+.sparkle {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 12px rgba(90, 150, 255, 0.95));
+}
+
+.sparkleCore {
+  fill: $q-primary;
+}

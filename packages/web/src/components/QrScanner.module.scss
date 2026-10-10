@@ -1,0 +1,38 @@
+@use '../ui/styles/tokens' as *;
+
+.scanner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 60vh;
+  border: 1px solid $q-border;
+  border-radius: $q-radius;
+  background: #000000;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Рамка прицела: в неё наводят код на двери */
+.frame {
+  position: absolute;
+  inset: 18%;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: $q-radius-sm;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.35);
+}
+
+.error {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  padding: $q-space-5;
+  text-align: center;
+  color: $q-danger;
+}

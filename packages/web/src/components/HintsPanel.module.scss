@@ -1,0 +1,79 @@
+@use '../ui/styles/tokens' as *;
+
+/* Надпись с лампочкой держим в одну строку: рядом только табличка аудитории */
+.button {
+  white-space: nowrap;
+}
+
+/* Лампочка на кнопке: ростом с надпись, поэтому размер в em */
+.bulb {
+  flex: 0 0 auto;
+  width: 0.9em;
+  height: 0.9em;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-4;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $q-space-2;
+}
+
+.item + .item {
+  padding-top: $q-space-4;
+  border-top: 1px solid $q-border;
+}
+
+.label {
+  color: $q-muted;
+  font-size: $q-size-small;
+}
+
+/* Открытая подсказка — единственное, что здесь читают: она и выглядит как текст */
+.text {
+  max-width: $q-measure;
+}
+
+/* Подсказкой бывает и картинка: держим её в ширине окна */
+.text img {
+  display: block;
+  border-radius: $q-radius;
+  max-width: 100%;
+  height: auto;
+}
+
+.locked {
+  color: $q-muted;
+}
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-3;
+}
+
+.ask {
+  margin: 0;
+  max-width: $q-measure;
+}
+
+/* Цена подсказки: красным, чтобы её было видно до нажатия */
+.penalty {
+  color: $q-danger;
+  font-weight: 700;
+}
+
+.confirmActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $q-space-2;
+}

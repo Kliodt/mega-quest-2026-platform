@@ -1,0 +1,23 @@
+@use '../ui/styles/mixins' as *;
+@use '../ui/styles/tokens' as *;
+
+.page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: $q-space-4;
+}
+
+.lead {
+  margin: 0;
+  max-width: $q-measure;
+}
+
+.back {
+  @include focus-ring;
+
+  align-self: flex-start;
+  border-radius: 4px;
+  color: #9db8ff;
+}

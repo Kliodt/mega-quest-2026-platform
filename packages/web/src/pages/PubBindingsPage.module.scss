@@ -1,0 +1,32 @@
+@use '../ui/styles/tokens' as *;
+
+/* Расшифровка незнакомого кода: текст бывает длинной ссылкой, поэтому переносим по буквам */
+.decoded {
+  width: 100%;
+  padding: $q-space-3;
+  border: 1px solid $q-border;
+  border-radius: $q-radius-sm;
+  background: $q-field;
+  font-family: $q-font-mono;
+  font-size: $q-size-small;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+.result {
+  align-items: center;
+  gap: $q-space-3;
+  text-align: center;
+}
+
+.code {
+  font-family: $q-font-mono;
+  color: $q-muted;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-2;
+  width: 100%;
+}

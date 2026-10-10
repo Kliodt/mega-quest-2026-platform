@@ -1,0 +1,29 @@
+@use '../ui/styles/mixins' as *;
+@use '../ui/styles/tokens' as *;
+
+/* Квадратная, ростом с кнопку подсказок рядом: та же подложка, только без надписи */
+.button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid $q-border;
+  border-radius: $q-radius-sm;
+  background: rgba(13, 27, 62, 0.85);
+  color: $q-text;
+
+  @include motion(background, border-color);
+  @include focus-ring;
+}
+
+.button:hover {
+  border-color: $q-border-strong;
+  background: rgba(24, 44, 92, 0.9);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}

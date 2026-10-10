@@ -1,0 +1,40 @@
+@use '../../ui/styles/tokens' as *;
+
+/* Задание бывает на три экрана: размер и длина строки подобраны под чтение с телефона */
+.prompt {
+  max-width: $q-measure;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.prompt > :first-child {
+  margin-top: 0;
+}
+
+.prompt > :last-child {
+  margin-bottom: 0;
+}
+
+.prompt p {
+  margin: 0 0 $q-space-4;
+}
+
+.prompt img {
+  max-width: 100%;
+  height: auto;
+  border-radius: $q-radius-sm;
+}
+
+.prompt a {
+  color: #9db8ff;
+}
+
+.prompt ul,
+.prompt ol {
+  margin: 0 0 $q-space-4;
+  padding-left: $q-space-5;
+}
+
+.prompt li {
+  margin-bottom: $q-space-2;
+}

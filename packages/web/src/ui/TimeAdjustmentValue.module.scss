@@ -1,0 +1,15 @@
+@use './styles/tokens' as *;
+
+.value {
+  font-family: $q-font-mono;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.penalty {
+  color: $q-danger;
+}
+
+.bonus {
+  color: $q-success;
+}

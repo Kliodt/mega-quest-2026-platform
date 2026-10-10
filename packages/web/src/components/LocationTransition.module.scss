@@ -1,0 +1,65 @@
+@use '../ui/styles/tokens' as *;
+
+.transition {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-3;
+  padding: $q-space-4;
+  border: 1px solid $q-border;
+  border-radius: $q-radius;
+  background: $q-surface;
+  backdrop-filter: $q-blur;
+}
+
+.lead {
+  margin: 0;
+  max-width: $q-measure;
+  text-align: center;
+}
+
+/* Корпус — главное на экране перехода: отдельной строкой и витринным шрифтом */
+.place {
+  margin: 0;
+  font-family: $q-font-display;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 8vw, 2.2rem);
+  line-height: $q-line-tight;
+  text-align: center;
+  color: $q-text-inverse;
+  text-shadow: 0.035em 0.04em 0 $q-primary;
+}
+
+.note {
+  max-width: $q-measure;
+  padding-top: $q-space-3;
+  border-top: 1px solid $q-border;
+  color: $q-muted;
+}
+
+.note p {
+  margin: 0 0 $q-space-3;
+}
+
+/* Выделенное в тексте организаторов читается на тёмном фоне, ссылка видна ссылкой */
+.note strong {
+  color: $q-text;
+}
+
+/* Логотип партнёра посреди текста: по центру и в половину ширины карточки */
+.note img {
+  display: block;
+  margin: 0 auto;
+  width: 240px;
+  max-width: 100%;
+  height: auto;
+}
+
+.note a {
+  color: $q-text-inverse;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.note > :last-child {
+  margin-bottom: 0;
+}

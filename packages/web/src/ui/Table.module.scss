@@ -1,0 +1,39 @@
+@use './styles/tokens' as *;
+
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid $q-border;
+  border-radius: $q-radius;
+  background: $q-surface;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: $q-space-2 $q-space-3;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid $q-border;
+}
+
+.table th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $q-muted;
+  background: rgba(255, 255, 255, 0.03);
+  font-weight: 700;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background: rgba(31, 95, 255, 0.08);
+}

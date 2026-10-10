@@ -1,0 +1,44 @@
+@use './styles/tokens' as *;
+
+.plate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $q-space-1;
+  text-align: center;
+}
+
+.number {
+  font-family: $q-font-display;
+  font-weight: 500;
+  line-height: 1;
+  color: $q-text-inverse;
+  /* Синий сдвиг вместо тени: тот же приём, что на афише квеста */
+  text-shadow: 0.035em 0.04em 0 $q-primary;
+}
+
+.caption {
+  color: $q-muted;
+}
+
+.hero .number {
+  font-size: $q-size-plate;
+  letter-spacing: 0.01em;
+}
+
+/* Строкой, а не колонкой: подпись идёт за номером и переносится под него */
+.compact {
+  display: block;
+  text-align: left;
+}
+
+.compact .number {
+  margin-right: $q-space-2;
+  font-size: 1.5rem;
+  /* «6 этаж» — одно имя: разрывать его посередине нельзя */
+  white-space: nowrap;
+}
+
+.compact .caption {
+  font-size: $q-size-small;
+}

@@ -1,0 +1,99 @@
+@use '../ui/styles/mixins' as *;
+@use '../ui/styles/tokens' as *;
+
+/* Шапка всегда на виду: команда сверяется с временем, не прокручивая экран */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: rgba(3, 6, 15, 0.72);
+  backdrop-filter: $q-blur;
+  border-bottom: 1px solid $q-border;
+}
+
+/* Полоса шапки тянется во всю ширину, содержимое стоит в той же колонке, что и экран */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $q-space-4;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: $q-space-2 $q-space-4;
+}
+
+.team {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: $q-space-3;
+}
+
+.name {
+  margin: 0;
+  overflow: hidden;
+  font-size: $q-size-body;
+  font-weight: 700;
+  line-height: $q-line-tight;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Карта открывается иконкой: подпись рядом с именем команды терялась */
+.mapLink {
+  @include focus-ring;
+  @include motion(color, background);
+
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $q-border;
+  border-radius: $q-radius-sm;
+  background: $q-surface-raised;
+  width: 34px;
+  height: 34px;
+  color: $q-text;
+}
+
+.mapLink svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mapLink:hover {
+  border-color: $q-border-strong;
+  color: $q-text-inverse;
+}
+
+.link {
+  @include focus-ring;
+
+  border-radius: 4px;
+  color: $q-muted;
+  font-size: $q-size-small;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: $q-text;
+}
+
+/* Поправки живут под часами: своей строкой, но мелко */
+.adjustment {
+  font-size: $q-size-small;
+}
+
+.meters {
+  @include bare-button;
+  @include focus-ring;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+  line-height: $q-line-tight;
+  border-radius: $q-radius-sm;
+  cursor: pointer;
+}

@@ -1,0 +1,12 @@
+# Caddy сам получает и продлевает сертификат Let's Encrypt и редиректит http → https.
+# Домен берётся из QUEST_DOMAIN в .env рядом с docker-compose.prod.yml.
+
+{$QUEST_DOMAIN} {
+	encode zstd gzip
+
+	# Камеру браузер даёт только на https, поэтому сканер кодов работает лишь за этим прокси.
+	# HSTS: раскомментировать после того, как убедились, что домен работает по https.
+	# header Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+	reverse_proxy app:3000
+}

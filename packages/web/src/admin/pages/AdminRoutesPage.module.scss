@@ -1,0 +1,41 @@
+@use '../../styles/variables' as *;
+
+.scroll {
+  overflow-x: auto;
+}
+
+.team {
+  width: 200px;
+}
+
+.tight {
+  white-space: nowrap;
+  width: 1px;
+}
+
+.location {
+  font-size: 0.8rem;
+  color: $color-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.rooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.rooms span:not(:first-child)::before {
+  content: '→ ';
+  color: $color-muted;
+}
+
+.passed {
+  color: $color-muted;
+}
+
+.current {
+  color: $color-primary;
+  font-weight: 700;
+}

@@ -1,0 +1,269 @@
+@use '../../styles/variables' as *;
+
+/* Форма набрана Inter, как оригинал; подмножества лежат в public/fonts рядом с остальными */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Variable-cyrillic.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Variable-latin.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+$control-bg: rgba(255, 255, 255, 0.055);
+$control-ring:
+  0 1px 1px rgba(0, 0, 0, 0.12),
+  0 0 0 1px rgba(247, 247, 247, 0.16),
+  0 2px 5px rgba(247, 247, 247, 0.08);
+$focus-ring:
+  0 0 0 4px rgba(58, 150, 255, 0.36),
+  0 0 0 1px rgba(247, 247, 247, 0.16);
+
+/* Форма занимает весь экран: платформы за ней не видно, поэтому и полей по краям нет */
+.site {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  /* Флажок, полосы прокрутки и уголок textarea рисует браузер: им нужна тёмная схема */
+  color-scheme: dark;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+/* Шапка формы: фирменный фон, «Квест» по центру и иконка темы в углу */
+.cover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 211px;
+  background: url('/games/form.png') center / cover no-repeat;
+}
+
+/* Надпись чуть растянута по горизонтали — как на печатной шапке квеста */
+.coverTitle {
+  display: inline-block;
+  font-size: clamp(3.25rem, 16vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0.05em 0.06em 0 #1f5fff;
+  transform: scaleX(1.15);
+}
+
+/* Иконка темы: в углу, который виден и на телефоне, где шапка обрезается по бокам */
+.topic {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  /* Иконки нарисованы чёрным по прозрачному: на тёмной шапке их нужно перекрасить в белый */
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+}
+
+/* Кнопка как у настоящих форм: единственная дверь обратно на платформу */
+.badge {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: #101010;
+  color: #3a96ff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+
+.column {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 50px 25px 48px;
+}
+
+.title {
+  margin: 0;
+  padding-bottom: 32px;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.text {
+  margin: 0;
+  padding: 3px 0 8px;
+  line-height: 24px;
+}
+
+.note {
+  color: #ffecec;
+}
+
+.divider {
+  height: 1px;
+  margin: 17px 0;
+  border: 0;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.label {
+  margin: 0;
+  padding: 20px 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22.5px;
+}
+
+.plain {
+  font-weight: 400;
+}
+
+/* Звёздочка обязательного поля — красная, как в оригинале формы */
+.required {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  color: #ff5b5b;
+  font-size: 14px;
+}
+
+.input,
+.textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 0;
+  border-radius: 8px;
+  background: $control-bg;
+  box-shadow: $control-ring;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 18.4px;
+
+  &::placeholder {
+    color: #575757;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+}
+
+.input {
+  height: 36px;
+  padding: 0 10px;
+}
+
+/* Тянуть поле вбок нельзя: вёрстка формы рассчитана на свою ширину */
+.textarea {
+  height: 96px;
+  padding: 10px;
+  resize: vertical;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 10px;
+  border-radius: 8px;
+  background: $control-bg;
+  box-shadow: $control-ring;
+  line-height: 18px;
+  cursor: pointer;
+}
+
+.optionChosen {
+  box-shadow:
+    0 0 0 2px #0077ff,
+    0 0 0 1px rgba(247, 247, 247, 0.16);
+}
+
+.optionInput {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.consent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 7.5px;
+  height: 36px;
+  margin-top: 46px;
+  padding: 0 13.5px;
+  border: 0;
+  border-radius: 8px;
+  background: #000000;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 15px;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: $focus-ring;
+  }
+}
+
+.arrow {
+  width: 1em;
+  height: 1em;
+}
+
+.outdated {
+  margin: 16px 0 0;
+  color: #ff6369;
+  line-height: 24px;
+}

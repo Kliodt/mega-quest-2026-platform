@@ -1,0 +1,68 @@
+services:
+  mongo:
+    # 8.x отказывается стартовать на ядрах Linux 6.19–7.0.13 (баг tcmalloc, SERVER-121912).
+    # Тег вынесен в переменную: если Docker Hub недоступен, подставляют образ из зеркала.
+    image: ${MONGO_IMAGE:-mongo:7}
+    restart: unless-stopped
+    # Наружу база не смотрит: с ней говорит только приложение по внутренней сети compose
+    volumes:
+      - mongo_data:/data/db
+
+  app:
+    build: .
+    restart: unless-stopped
+    # Если Mongo стоит на самом сервере, а не в контейнере: MONGO_URI=mongodb://host.docker.internal:27017/quest
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    environment:
+      MONGO_URI: ${MONGO_URI:-mongodb://mongo:27017/quest}
+      JWT_SECRET: ${JWT_SECRET:?укажите JWT_SECRET в .env}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:?укажите ADMIN_TOKEN в .env}
+      API_PORT: 3000
+      # Собранный фронтенд лежит в образе, раздаёт его этот же процесс
+      WEB_DIST: /app/packages/web/dist
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      # Тестовый код: открывает любой вопрос и засчитывает любой ответ. Пусто — выключен,
+      # на реальном квесте не задаём. При старте API пишет о нём предупреждение в лог.
+      MOCK_CODE: ${MOCK_CODE:-}
+    volumes:
+      # Ролики Яндекса в образ не кладём: 700 МБ статики приезжают на сервер отдельно
+      - ./packages/web/public/yandex_files:/app/packages/web/dist/yandex_files:ro
+    # Наружу приложение смотрит только через Caddy; этот порт — чтобы проверять с самого сервера
+    ports:
+      - '127.0.0.1:${QUEST_HOST_PORT:-3300}:3000'
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1),()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    depends_on:
+      - mongo
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      # Сертификаты переживают пересоздание контейнера: Let's Encrypt не любит повторные выпуски
+      - caddy_data:/data
+      - caddy_config:/config
+    environment:
+      QUEST_DOMAIN: ${QUEST_DOMAIN:?укажите домен в .env}
+    depends_on:
+      - app
+
+volumes:
+  mongo_data:
+  caddy_data:
+  caddy_config:

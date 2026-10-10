@@ -1,0 +1,17 @@
+@use '../../styles/variables' as *;
+
+.form {
+  max-width: 420px;
+  margin: $space-6 auto;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.notice {
+  margin: 0;
+  padding: $space-3;
+  border-radius: $radius-sm;
+  background: $color-active-bg;
+  color: $color-primary;
+}

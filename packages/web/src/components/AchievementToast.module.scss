@@ -1,0 +1,63 @@
+@use '../ui/styles/mixins' as *;
+@use '../ui/styles/tokens' as *;
+
+/* Выезжает из-за правого края под самой шапкой: она и держит его на месте */
+.toast {
+  @include bare-button;
+  @include focus-ring;
+
+  position: absolute;
+  top: calc(100% + #{$q-space-2});
+  right: $q-space-3;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: $q-space-3;
+  border: 1px solid $q-border-strong;
+  border-radius: $q-radius;
+  background: $q-surface-solid;
+  box-shadow: $q-shadow;
+  padding: $q-space-2 $q-space-3;
+  max-width: min(320px, calc(100vw - #{$q-space-5}));
+  cursor: pointer;
+}
+
+.image {
+  flex: 0 0 auto;
+  border-radius: $q-radius-sm;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.title {
+  font-family: $q-font-display;
+  font-weight: 500;
+  font-size: $q-size-small;
+  line-height: $q-line-tight;
+  color: $q-text;
+  text-align: left;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Приехал справа, повисел три секунды и уехал туда же — одной лентой анимаций */
+  .toast {
+    animation:
+      slide-in 0.28s ease,
+      slide-out 0.28s ease 3s forwards;
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(110%);
+    }
+  }
+
+  @keyframes slide-out {
+    to {
+      opacity: 0;
+      transform: translateX(110%);
+    }
+  }
+}

@@ -1,0 +1,144 @@
+@use '../../ui/styles/mixins' as *;
+@use '../../ui/styles/tokens' as *;
+
+/*
+ * Подложка средней яркости, как серая карта у фотографов: на ней ровно и держится
+ * спрятанный код. На почти чёрном фоне контрастность в галерее вытащить его не может —
+ * тёмные уровни схлопываются в чёрный.
+ */
+.screen {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $q-border;
+  border-radius: $q-radius;
+  background: #2a3247;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: $q-space-5 $q-space-4;
+}
+
+.screenText {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-4;
+}
+
+.title {
+  margin: 0;
+  font-family: $q-font-display;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: $q-line-tight;
+}
+
+.lead {
+  margin: 0;
+  max-width: $q-measure;
+}
+
+.round {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-3;
+}
+
+.status {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $q-space-3;
+}
+
+.counter {
+  color: $q-muted;
+  font-size: $q-size-small;
+}
+
+.bar {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: $q-primary;
+
+  @include motion(width);
+}
+
+.question {
+  margin: $q-space-2 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Варианты в один столбик и по левому краю: глазу не нужно прыгать по строке */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-2;
+}
+
+.option {
+  @include focus-ring;
+  @include motion(background, border-color);
+
+  width: 100%;
+  min-height: 48px;
+  padding: $q-space-3 $q-space-4;
+  border: 1px solid $q-border;
+  border-radius: $q-radius-sm;
+  background: rgba(13, 27, 62, 0.85);
+  color: $q-text;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.option:hover,
+.option:active {
+  border-color: $q-border-strong;
+  background: rgba(24, 44, 92, 0.9);
+}
+
+.verdicts {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.verdict {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr auto;
+  gap: $q-space-3;
+  align-items: baseline;
+  padding-bottom: $q-space-2;
+  border-bottom: 1px solid $q-border;
+  font-size: $q-size-small;
+}
+
+.verdictIndex {
+  color: $q-muted;
+  font-family: $q-font-mono;
+}
+
+.verdictText {
+  color: $q-muted;
+}
+
+.right {
+  color: $q-success;
+}
+
+.wrong {
+  color: $q-danger;
+}

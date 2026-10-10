@@ -1,0 +1,26 @@
+@use './styles/tokens' as *;
+
+.value {
+  font-family: $q-font-mono;
+  font-variant-numeric: tabular-nums;
+}
+
+.normal {
+  font-size: $q-size-body;
+}
+
+.large {
+  font-size: clamp(1.5rem, 5.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.hero {
+  font-size: clamp(2.4rem, 13vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.paused {
+  color: $q-muted;
+}

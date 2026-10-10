@@ -1,0 +1,39 @@
+@use './styles/tokens' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $q-space-2;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: $q-size-micro;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.neutral {
+  border-color: $q-border;
+  color: $q-muted;
+}
+
+.active {
+  border-color: rgba(31, 95, 255, 0.5);
+  background: rgba(31, 95, 255, 0.18);
+  color: #a8c0ff;
+}
+
+.done {
+  border-color: rgba(74, 222, 128, 0.4);
+  color: $q-success;
+}
+
+.locked {
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.06);
+  color: $q-muted;
+}
+
+.danger {
+  border-color: rgba(255, 107, 107, 0.45);
+  color: $q-danger;
+}

@@ -1,0 +1,74 @@
+@use '../../styles/variables' as *;
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $space-4;
+}
+
+.back {
+  color: $color-muted;
+  text-decoration: none;
+}
+
+.name {
+  margin: $space-1 0;
+}
+
+.totals {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: $space-1 $space-5;
+  margin: 0;
+}
+
+.totals dt {
+  grid-row: 1;
+  color: $color-muted;
+  font-size: 0.85rem;
+}
+
+.totals dd {
+  grid-row: 2;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.actions {
+  display: flex;
+  gap: $space-2;
+}
+
+.tabs {
+  display: flex;
+  gap: $space-2;
+  border-bottom: 1px solid $color-border;
+}
+
+.tab {
+  padding: $space-2 $space-3;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: $color-muted;
+  font-weight: 600;
+}
+
+.tabActive {
+  color: $color-primary;
+  border-bottom-color: $color-primary;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-5;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}

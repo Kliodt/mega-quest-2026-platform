@@ -1,0 +1,7 @@
+@use '../ui/styles/tokens' as *;
+
+/* Часы в шапке: крупные, но не в ущерб её высоте */
+.timer {
+  display: block;
+  font-size: clamp(1.25rem, 4.5vw, 1.6rem);
+}

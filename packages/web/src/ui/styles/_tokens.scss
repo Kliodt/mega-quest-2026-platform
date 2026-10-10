@@ -1,0 +1,66 @@
+/* Токены оформления квеста: цвета, отступы, скругления, шрифты. Других источников цвета нет. */
+
+// Фон и поверхности
+$q-bg: #03060f;
+$q-bg-deep: #061034;
+$q-surface: rgba(7, 16, 40, 0.72);
+$q-surface-solid: #0b1530;
+$q-surface-raised: rgba(21, 33, 66, 0.72);
+$q-border: rgba(140, 175, 255, 0.18);
+$q-border-strong: rgba(140, 175, 255, 0.35);
+/* Поля ввода непрозрачны: сквозь полупрозрачные просвечивал узор фона */
+$q-field: rgba(6, 13, 33, 0.92);
+
+// Текст
+$q-text: #eef2fb;
+$q-muted: #8f9db8;
+$q-text-inverse: #ffffff;
+
+// Акценты
+$q-primary: #1f5fff;
+$q-primary-hover: #3d76ff;
+$q-danger: #ff6b6b;
+$q-success: #4ade80;
+$q-warning: #fbbf24;
+
+// Фокус с клавиатуры виден на тёмном фоне только светлее акцента
+$q-focus: #7aa2ff;
+$q-focus-ring: 0 0 0 3px rgba(122, 162, 255, 0.5);
+
+// Отступы
+$q-space-1: 4px;
+$q-space-2: 8px;
+$q-space-3: 12px;
+$q-space-4: 16px;
+$q-space-5: 24px;
+$q-space-6: 32px;
+
+// Скругления и тени
+$q-radius: 14px;
+$q-radius-sm: 8px;
+$q-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+$q-blur: blur(14px);
+
+// Шрифты: Druk на заголовки, Raleway на текст, моноширинный на коды и время
+$q-font-display: 'Druk Text Wide Cyr', 'Arial Black', 'Helvetica Neue', system-ui, sans-serif;
+$q-font-text:
+  Raleway,
+  system-ui,
+  -apple-system,
+  sans-serif;
+$q-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+/* Размеры текста: Druk на витринных величинах, Raleway на остальном */
+$q-size-display: clamp(1.8rem, 9vw, 3rem);
+$q-size-plate: clamp(2.6rem, 18vw, 4.2rem);
+$q-size-section: 1.25rem;
+$q-size-body: 1rem;
+$q-size-small: 0.875rem;
+$q-size-micro: 0.75rem;
+
+$q-line-tight: 1.15;
+$q-line-body: 1.55;
+/* Длина строки задания: за этим пределом читать с телефона тяжело */
+$q-measure: 34em;
+
+$q-motion: 0.16s ease;

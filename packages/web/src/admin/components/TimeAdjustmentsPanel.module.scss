@@ -1,0 +1,11 @@
+@use '../../styles/variables' as *;
+
+.commentField {
+  flex: 1;
+  min-width: 240px;
+}
+
+.fieldError {
+  color: $color-danger;
+  font-size: 0.85rem;
+}

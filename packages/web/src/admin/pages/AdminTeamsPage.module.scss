@@ -1,0 +1,16 @@
+@use '../../styles/variables' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-4;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.name {
+  font-weight: 600;
+}

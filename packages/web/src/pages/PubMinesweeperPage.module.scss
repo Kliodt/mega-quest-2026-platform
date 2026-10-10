@@ -1,0 +1,14 @@
+@use '../ui/styles/tokens' as *;
+
+.result {
+  align-items: center;
+  gap: $q-space-3;
+  text-align: center;
+}
+
+/* Сам код метки: длинный, поэтому моноширинным и помельче */
+.code {
+  font-family: $q-font-mono;
+  color: $q-muted;
+  overflow-wrap: anywhere;
+}

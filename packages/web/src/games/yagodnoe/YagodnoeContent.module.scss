@@ -1,0 +1,45 @@
+@use '../../ui/styles/mixins' as *;
+@use '../../ui/styles/tokens' as *;
+
+/* Фотография Ягодного открывает задание: она и задаёт настроение истории */
+.photo {
+  display: block;
+  border-radius: $q-radius;
+  width: 100%;
+  height: auto;
+}
+
+.intro {
+  max-width: $q-measure;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.intro > :first-child {
+  margin-top: 0;
+}
+
+.intro p {
+  margin: 0 0 $q-space-3;
+}
+
+/* Без анкет задание не решить, поэтому ссылка на них — кнопка, а не строка в тексте */
+.table {
+  display: block;
+  border: 1px solid $q-border-strong;
+  border-radius: $q-radius;
+  background: $q-surface-raised;
+  padding: $q-space-4;
+  color: $q-text;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+
+  @include motion(background, border-color);
+  @include focus-ring;
+}
+
+.table:hover {
+  border-color: $q-primary;
+  background: $q-surface-solid;
+}

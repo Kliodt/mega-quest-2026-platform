@@ -1,0 +1,27 @@
+@use './styles/tokens' as *;
+
+.tabs {
+  display: flex;
+  gap: $q-space-2;
+  border-bottom: 1px solid $q-border;
+  overflow-x: auto;
+}
+
+.tab {
+  padding: $q-space-2 $q-space-3;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: $q-muted;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: $q-text;
+}
+
+.active {
+  color: #a8c0ff;
+  border-bottom-color: $q-primary;
+}

@@ -1,0 +1,27 @@
+@use './styles/mixins' as *;
+@use './styles/tokens' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: $q-radius-sm;
+  background: none;
+  color: $q-muted;
+
+  @include motion(color, background);
+  @include focus-ring;
+}
+
+.button:hover:not(:disabled) {
+  color: $q-text;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.button:disabled {
+  opacity: 0.55;
+}

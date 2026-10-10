@@ -1,0 +1,43 @@
+@use '../styles/variables' as *;
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: $space-3;
+  align-items: baseline;
+  padding-bottom: $space-2;
+  border-bottom: 1px solid $color-border;
+}
+
+.time {
+  color: $color-muted;
+}
+
+.text {
+  min-width: 0;
+}
+
+.penalty {
+  color: $color-danger;
+  font-weight: 600;
+}
+
+.bonus {
+  color: $color-success;
+  font-weight: 600;
+}
+
+.total {
+  margin: $space-3 0 0;
+  text-align: right;
+  font-weight: 600;
+}

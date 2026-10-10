@@ -1,0 +1,18 @@
+@use '../../styles/variables' as *;
+
+.flags {
+  display: inline-flex;
+  gap: $space-2;
+  color: $color-primary;
+}
+
+/* Обёртка ради подсказки браузера: у самих линий иконки наведение не ловится */
+.flag {
+  display: inline-flex;
+  cursor: help;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,27 @@
+@use '../../styles/variables' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.header h1 {
+  margin: 0;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.search {
+  flex: 0 0 260px;
+}
+
+.actions {
+  display: flex;
+  gap: $space-2;
+}
+
+.empty {
+  color: $color-danger;
+  font-weight: 600;
+}

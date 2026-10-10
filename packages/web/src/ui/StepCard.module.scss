@@ -1,0 +1,67 @@
+@use './styles/tokens' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-2;
+  padding: $q-space-3 $q-space-4;
+  border: 1px solid $q-border;
+  border-left: 3px solid transparent;
+  border-radius: $q-radius-sm;
+  background: $q-surface-raised;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  gap: $q-space-3;
+}
+
+.index {
+  min-width: 1.5rem;
+  color: $q-muted;
+  font-family: $q-font-mono;
+}
+
+.headText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $q-space-1;
+  min-width: 0;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: $q-space-2;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $q-space-1 $q-space-4;
+  color: $q-muted;
+  font-size: 0.95rem;
+}
+
+.locked {
+  opacity: 0.6;
+}
+
+.awaiting {
+  border-left-color: rgba(31, 95, 255, 0.6);
+}
+
+.active {
+  border-left-color: $q-primary;
+  box-shadow: 0 0 0 1px rgba(31, 95, 255, 0.25);
+}
+
+.done {
+  border-left-color: rgba(74, 222, 128, 0.6);
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@quest/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/main.ts",
+    "start": "node --import tsx src/main.ts",
+    "load-all": "npm run load-bindings && npm run load-locations && npm run load-questions && npm run load-teams",
+    "load-bindings": "tsx src/setup/loadBindings.ts",
+    "load-locations": "tsx src/setup/loadLocations.ts",
+    "load-questions": "tsx src/setup/loadQuestions.ts",
+    "load-teams": "tsx src/setup/loadTeams.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.3.0",
+    "@fastify/jwt": "^10.2.2",
+    "@fastify/static": "^10.1.4",
+    "@fastify/swagger": "^9.8.1",
+    "@fastify/swagger-ui": "^6.1.1",
+    "@fastify/type-provider-typebox": "^5.2.0",
+    "@quest/shared": "*",
+    "@sinclair/typebox": "^0.34.52",
+    "bcryptjs": "^3.0.3",
+    "fastify": "^5.12.4",
+    "fastify-plugin": "^6.0.0",
+    "http-status": "^2.1.0",
+    "mongoose": "^9.10.0",
+    "tsx": "^4.23.13"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "mongodb-memory-server": "^11.2.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
+  }
+}

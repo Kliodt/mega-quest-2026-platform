@@ -1,0 +1,21 @@
+@use '../ui/styles/tokens' as *;
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-3;
+}
+
+/* Куда команда попала: аудитория названа сразу, ещё до ответа сервера о шаге */
+.room {
+  margin: 0;
+  font-weight: 700;
+}
+
+.link {
+  margin: 0;
+  color: $q-muted;
+  font-family: $q-font-mono;
+  font-size: $q-size-small;
+  overflow-wrap: anywhere;
+}

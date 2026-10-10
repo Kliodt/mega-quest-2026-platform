@@ -1,0 +1,35 @@
+@use '../ui/styles/tokens' as *;
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $q-space-4;
+  padding: $q-space-5 $q-space-4;
+  border: 1px solid $q-border;
+  border-radius: $q-radius;
+  background: $q-surface;
+  backdrop-filter: $q-blur;
+  text-align: center;
+}
+
+/* Приветствие — первое, что команда видит на квесте: витринным шрифтом, как названия корпусов */
+.title {
+  margin: 0;
+  font-family: $q-font-display;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 7vw, 2rem);
+  line-height: $q-line-tight;
+  color: $q-text-inverse;
+  text-shadow: 0.035em 0.04em 0 $q-primary;
+}
+
+.lead {
+  margin: 0;
+  max-width: $q-measure;
+}
+
+.wish {
+  margin: 0;
+  color: $q-muted;
+}

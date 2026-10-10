@@ -1,0 +1,77 @@
+@use './styles/mixins' as *;
+@use './styles/tokens' as *;
+
+/* Надписи набраны как обычный текст: заглавные буквы оставлены витринному шрифту */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $q-space-2;
+  min-height: 48px;
+  padding: $q-space-3 $q-space-4;
+  border: 1px solid transparent;
+  border-radius: $q-radius-sm;
+  font-weight: 700;
+
+  @include motion(background, border-color, color);
+  @include focus-ring;
+}
+
+.button:disabled {
+  opacity: 0.55;
+}
+
+/* Палец на бегу: основной размер держит 48 px высоты, мелкий — для плотных мест */
+.medium {
+  font-size: $q-size-body;
+}
+
+.small {
+  min-height: 36px;
+  padding: $q-space-2 $q-space-3;
+  font-size: $q-size-small;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.primary {
+  background: $q-primary;
+  color: $q-text-inverse;
+}
+
+.primary:hover:not(:disabled) {
+  background: $q-primary-hover;
+}
+
+/* Плотная подложка: сквозь прозрачную кнопку просвечивал узор фона */
+.secondary {
+  background: rgba(13, 27, 62, 0.85);
+  border-color: $q-border;
+  color: $q-text;
+}
+
+.secondary:hover:not(:disabled) {
+  border-color: $q-border-strong;
+  background: rgba(24, 44, 92, 0.9);
+}
+
+.danger {
+  background: rgba(255, 107, 107, 0.15);
+  border-color: rgba(255, 107, 107, 0.45);
+  color: $q-danger;
+}
+
+.danger:hover:not(:disabled) {
+  background: rgba(255, 107, 107, 0.25);
+}
+
+.ghost {
+  background: none;
+  color: $q-muted;
+}
+
+.ghost:hover:not(:disabled) {
+  color: $q-text;
+}

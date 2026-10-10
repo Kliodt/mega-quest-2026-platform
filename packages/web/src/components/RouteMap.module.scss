@@ -1,0 +1,145 @@
+@use '../ui/styles/mixins' as *;
+@use '../ui/styles/tokens' as *;
+
+.map {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-5;
+}
+
+.chapter {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-2;
+}
+
+/* Корпус — глава маршрута, поэтому набран витринным шрифтом */
+.place {
+  margin: 0;
+  font-family: $q-font-display;
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: $q-line-tight;
+  color: $q-muted;
+}
+
+.place.done {
+  color: $q-text;
+}
+
+.place.current {
+  color: $q-text-inverse;
+  text-shadow: 0.03em 0.035em 0 $q-primary;
+}
+
+.finish {
+  margin: 0;
+  color: $q-muted;
+  font-size: $q-size-small;
+}
+
+/* Линия маршрута: задания корпуса нанизаны на неё сверху вниз */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-2;
+  margin: 0;
+  padding: 0 0 0 $q-space-4;
+  border-left: 1px solid $q-border;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $q-space-3;
+  min-height: 32px;
+  padding: $q-space-2 0;
+}
+
+/* Точка висит на первой строке задания, поэтому и рисует её сама строка */
+.head,
+.pending {
+  position: relative;
+}
+
+.head::before,
+.pending::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(-#{$q-space-4} - 4px);
+  width: 7px;
+  height: 7px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: $q-border-strong;
+}
+
+.step.done .head::before {
+  background: $q-success;
+}
+
+.step.current .head::before,
+.step.current .pending::before {
+  background: $q-primary;
+  box-shadow: 0 0 0 4px rgba(31, 95, 255, 0.25);
+}
+
+.locked {
+  opacity: 0.55;
+}
+
+.pending {
+  color: $q-muted;
+}
+
+/* Решённое задание в две строки: аудитория со временем, под ними цена задания */
+.solved {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Время прижато к правому краю строки: так времена заданий читаются колонкой */
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $q-space-3;
+}
+
+.hints {
+  color: $q-muted;
+}
+
+/* Картинка ростом со строку: выше кнопки «Перейти» она не становится, и строки
+   остаются одной высоты — вверх и вниз картинка места не занимает */
+.achievement {
+  @include bare-button;
+  @include focus-ring;
+
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  border-radius: $q-radius-sm;
+  cursor: pointer;
+}
+
+.achievementImage {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.result {
+  display: flex;
+  gap: $q-space-3;
+  font-size: $q-size-small;
+  white-space: nowrap;
+}

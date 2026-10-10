@@ -1,0 +1,12 @@
+node_modules
+packages/*/node_modules
+dist
+packages/*/dist
+# Ролики Яндекса (около 700 МБ) на сервер кладут отдельно и монтируют в контейнер
+packages/web/public/yandex_files
+.git
+.github
+.playwright-mcp
+docs
+*.log
+.env

@@ -1,0 +1,43 @@
+@use './styles/fonts';
+@use './styles/tokens' as *;
+
+.shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  font-family: $q-font-text;
+  font-size: $q-size-body;
+  line-height: $q-line-body;
+  color: $q-text;
+  /* Цифры одной высоты: иначе в номерах аудиторий и счёте они пляшут по строке */
+  font-variant-numeric: lining-nums;
+  font-feature-settings:
+    'lnum' 1,
+    'onum' 0;
+}
+
+/* Свечение прибито к окну, а не к странице: при прокрутке углы остаются на месте.
+   Экраны команды живут на светлом глобальном фоне админки, поэтому фон рисует оболочка */
+.shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(70% 55% at 8% 4%, rgba(16, 52, 150, 0.85), transparent 60%),
+    radial-gradient(75% 60% at 92% 100%, rgba(20, 62, 180, 0.9), transparent 62%),
+    radial-gradient(60% 50% at 95% 10%, rgba(9, 32, 96, 0.7), transparent 60%),
+    linear-gradient(160deg, $q-bg-deep 0%, $q-bg 45%, #061a4d 100%);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: $q-space-4;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: $q-space-4 $q-space-4 $q-space-6;
+}

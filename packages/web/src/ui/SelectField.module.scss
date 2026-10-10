@@ -1,0 +1,38 @@
+@use './styles/mixins' as *;
+@use './styles/tokens' as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-1;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.select {
+  width: 100%;
+  min-height: 48px;
+  padding: $q-space-3;
+  border: 1px solid $q-border;
+  border-radius: $q-radius-sm;
+  background: $q-field;
+  color: $q-text;
+  appearance: auto;
+
+  @include focus-ring;
+}
+
+.select:disabled {
+  opacity: 0.55;
+}
+
+.invalid {
+  border-color: $q-danger;
+}
+
+.error {
+  color: $q-danger;
+  font-size: $q-size-small;
+}

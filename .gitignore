@@ -1,0 +1,22 @@
+node_modules/
+dist/
+coverage/
+storybook-static/
+.env
+# Любые env-файлы с секретами, кроме примера
+.env.*
+!.env.example
+deploy/.env.production
+*.log
+.DS_Store
+.vite/
+
+# артефакты браузерных проверок (Playwright MCP)
+.playwright-mcp/
+
+
+# Ролики Яндекса: 700 МБ статики, на чистой копии их кладут руками
+packages/web/public/yandex_files/
+
+.vscode/
+backups/

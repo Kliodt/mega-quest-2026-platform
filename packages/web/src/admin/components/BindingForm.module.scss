@@ -1,0 +1,20 @@
+@use '../../styles/variables' as *;
+
+/* В окне поля стоят сеткой: на узком экране складываются в столбик сами */
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: $space-3;
+}
+
+.actions {
+  display: flex;
+  gap: $space-3;
+}
+
+/* Не ошибка, а замечание: у двери может быть и два кода */
+.notice {
+  margin: 0;
+  color: $color-muted;
+  font-size: 0.875rem;
+}

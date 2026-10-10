@@ -1,0 +1,23 @@
+@use '../ui/styles/tokens' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $q-space-3;
+}
+
+.image {
+  width: min(100%, 260px);
+  height: auto;
+}
+
+.title {
+  margin: 0;
+  font-family: $q-font-display;
+  font-weight: 500;
+  font-size: $q-size-small;
+  line-height: $q-line-tight;
+  color: $q-text;
+  text-align: center;
+}

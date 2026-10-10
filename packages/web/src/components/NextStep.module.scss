@@ -1,0 +1,16 @@
+@use '../ui/styles/tokens' as *;
+
+.step {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: $q-space-5;
+}
+
+.lead {
+  margin: 0;
+  max-width: $q-measure;
+  color: $q-muted;
+  text-align: center;
+}

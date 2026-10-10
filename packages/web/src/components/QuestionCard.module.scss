@@ -1,0 +1,40 @@
+@use '../ui/styles/tokens' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-5;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-1;
+  padding-bottom: $q-space-3;
+  border-bottom: 1px solid $q-border;
+}
+
+/* Аудитория слева, поддержка с подсказками справа: всё, что нужно поверх задания */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $q-space-3;
+}
+
+.tools {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: $q-space-2;
+}
+
+.attempts {
+  color: $q-muted;
+  font-size: $q-size-small;
+}
+
+/* Корпус живёт на своей строке — под номером аудитории, а не под «ауд.» */
+.location {
+  display: block;
+}

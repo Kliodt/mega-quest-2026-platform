@@ -1,0 +1,23 @@
+@use './styles/tokens' as *;
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-2;
+  text-align: center;
+}
+
+/* Градиентную заливку тут не сделать: тень рисуется поверх фона элемента */
+.title {
+  margin: 0;
+  font-family: $q-font-display;
+  font-weight: 500;
+  font-size: clamp(1.8rem, 9vw, 3.2rem);
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow: 0.035em 0.04em 0 $q-primary;
+}
+
+.subtitle {
+  color: $q-muted;
+}

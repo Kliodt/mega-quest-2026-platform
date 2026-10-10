@@ -1,0 +1,22 @@
+@use '../../ui/styles/tokens' as *;
+
+/* Заголовок ролика: он и есть вопрос, поэтому набран витринным шрифтом */
+.title {
+  margin: 0;
+  max-width: $q-measure;
+  font-family: $q-font-display;
+  font-weight: 500;
+  font-size: $q-size-section;
+  line-height: $q-line-tight;
+  color: $q-text;
+}
+
+/* Ролик вертикальный: по высоте держим его в пределах экрана, поля закрывает чёрный фон */
+.video {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  border-radius: $q-radius;
+  background: #000000;
+  object-fit: contain;
+}

@@ -1,0 +1,181 @@
+@use './variables' as *;
+
+/* Светлое оформление админки. Экраны команды живут на своём паке: src/ui. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Динамический вьюпорт: с процентами на телефоне страница выше окна на высоту адресной
+   строки, и фон ездит сам по себе */
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  color: $color-text;
+  background: $color-bg;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input {
+  font: inherit;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 $space-3;
+  line-height: 1.2;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: $space-4;
+}
+
+.card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  padding: $space-4;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-3 $space-4;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
+  background: $color-primary;
+  color: $color-primary-text;
+  font-weight: 600;
+}
+
+.btn--secondary {
+  background: $color-surface;
+  color: $color-text;
+  border-color: $color-border;
+}
+
+.input {
+  width: 100%;
+  padding: $space-3;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-surface;
+}
+
+.input:focus {
+  outline: 2px solid $color-primary;
+  outline-offset: 1px;
+}
+
+.muted {
+  color: $color-muted;
+}
+
+.mono {
+  font-family: $font-mono;
+}
+
+.btn--small {
+  padding: $space-2 $space-3;
+  font-size: 0.9rem;
+}
+
+.btn--danger {
+  background: $color-danger;
+  color: $color-primary-text;
+}
+
+select.input {
+  appearance: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: $space-2 $space-3;
+  text-align: left;
+  border-bottom: 1px solid $color-border;
+  vertical-align: top;
+}
+
+.table th {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $color-muted;
+  background: $color-bg;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr.clickable {
+  cursor: pointer;
+}
+
+.table tbody tr.clickable:hover {
+  background: $color-active-bg;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  font-weight: 600;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  align-items: flex-end;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  margin: 0;
+}

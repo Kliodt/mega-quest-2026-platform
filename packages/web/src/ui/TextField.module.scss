@@ -1,0 +1,67 @@
+@use './styles/mixins' as *;
+@use './styles/tokens' as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-1;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.box {
+  position: relative;
+  display: flex;
+}
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: $q-space-3;
+  border: 1px solid $q-border;
+  border-radius: $q-radius-sm;
+  background: $q-field;
+  color: $q-text;
+
+  @include focus-ring;
+}
+
+.input::placeholder {
+  color: $q-muted;
+}
+
+.input:disabled {
+  opacity: 0.55;
+}
+
+.withTrailing {
+  padding-right: 48px;
+}
+
+.trailing {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+  display: flex;
+}
+
+.mono {
+  font-family: $q-font-mono;
+}
+
+.invalid {
+  border-color: $q-danger;
+}
+
+.error {
+  color: $q-danger;
+  font-size: $q-size-small;
+}
+
+.hint {
+  color: $q-muted;
+  font-size: $q-size-small;
+}

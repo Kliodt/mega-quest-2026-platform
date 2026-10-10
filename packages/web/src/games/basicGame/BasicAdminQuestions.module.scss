@@ -1,0 +1,43 @@
+@use '../../styles/variables' as *;
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.item {
+  padding: $space-3;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-surface;
+}
+
+.prompt {
+  font-weight: 600;
+  margin-bottom: $space-2;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: $space-1 $space-3;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.meta dt {
+  color: $color-muted;
+}
+
+.meta dd {
+  margin: 0;
+}
+
+.hints {
+  margin: 0;
+  padding-left: $space-4;
+}

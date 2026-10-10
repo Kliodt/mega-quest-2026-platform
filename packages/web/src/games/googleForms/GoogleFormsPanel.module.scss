@@ -1,0 +1,23 @@
+@use '../../ui/styles/tokens' as *;
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $q-space-4;
+}
+
+/* Время и поправки столбиком, как в шапке на остальных заданиях */
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Подсказки и поддержка в одну строку, как в шапке обычного задания */
+.row {
+  display: flex;
+  align-items: center;
+  gap: $q-space-2;
+}

@@ -1,0 +1,17 @@
+@use '../../ui/styles/tokens' as *;
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-4;
+}
+
+/* Ролик вертикальный: по высоте держим его в пределах экрана, поля закрывает чёрный фон */
+.video {
+  display: block;
+  width: 100%;
+  max-height: 65vh;
+  border-radius: $q-radius;
+  background: #000000;
+  object-fit: contain;
+}

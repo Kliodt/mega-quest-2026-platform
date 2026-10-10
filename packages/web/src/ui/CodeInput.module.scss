@@ -1,0 +1,27 @@
+@use './styles/mixins' as *;
+@use './styles/tokens' as *;
+
+.input {
+  width: 100%;
+  padding: $q-space-3 $q-space-4;
+  border: 1px solid $q-border;
+  border-radius: $q-radius-sm;
+  background: $q-field;
+  color: $q-text;
+  font-family: $q-font-mono;
+  font-size: 1.6rem;
+  /* Восемь символов набирают по одному: разреженные буквы видно на бегу */
+  letter-spacing: 0.35em;
+  text-align: center;
+
+  @include focus-ring;
+}
+
+.input::placeholder {
+  color: rgba(143, 157, 184, 0.5);
+  letter-spacing: 0.2em;
+}
+
+.input:disabled {
+  opacity: 0.55;
+}

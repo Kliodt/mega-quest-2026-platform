@@ -1,0 +1,39 @@
+@use './styles/mixins' as *;
+@use './styles/tokens' as *;
+
+.dialog {
+  width: min(460px, calc(100vw - 2 * #{$q-space-4}));
+  max-height: calc(100dvh - 2 * #{$q-space-4});
+  padding: 0;
+  border: 1px solid $q-border-strong;
+  border-radius: $q-radius;
+  background: $q-surface-solid;
+  color: $q-text;
+  font-family: $q-font-text;
+  box-shadow: $q-shadow;
+}
+
+.dialog::backdrop {
+  background: rgba(2, 5, 14, 0.78);
+  backdrop-filter: $q-blur;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-4;
+  padding: $q-space-4;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $q-space-3;
+}
+
+.title {
+  margin: 0;
+  font-size: $q-size-section;
+  line-height: $q-line-tight;
+}

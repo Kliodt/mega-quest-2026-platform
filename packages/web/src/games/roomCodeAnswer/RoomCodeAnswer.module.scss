@@ -1,0 +1,21 @@
+@use '../../ui/styles/tokens' as *;
+
+.answer {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-4;
+}
+
+.lead {
+  margin: 0;
+  max-width: $q-measure;
+  color: $q-muted;
+}
+
+/* Подпись под заданием: она объясняет правило игры, а не зовёт к действию */
+.rule {
+  margin: 0 auto;
+  color: $q-muted;
+  font-size: $q-size-small;
+  text-align: center;
+}

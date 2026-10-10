@@ -1,0 +1,32 @@
+@use './styles/tokens' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $q-space-4;
+  padding: $q-space-5;
+  border: 1px solid $q-border;
+  border-radius: $q-radius;
+  background: $q-surface;
+  backdrop-filter: $q-blur;
+  box-shadow: $q-shadow;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $q-space-4;
+}
+
+.title {
+  margin: 0;
+  font-family: $q-font-display;
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+
+.actions {
+  display: flex;
+  gap: $q-space-2;
+}

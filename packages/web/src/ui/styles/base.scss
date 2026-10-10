@@ -1,0 +1,59 @@
+/* Основа оформления: шрифты и настройки страницы. Подключается один раз в точке входа. */
+@use './fonts';
+@use './tokens' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+/* Высоту меряем динамическим вьюпортом: с процентами на телефоне страница оказывается
+   выше окна на высоту адресной строки, и фон ездит сам по себе */
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+body {
+  font-family: $q-font-text;
+  font-size: 16px;
+  line-height: 1.45;
+  color: $q-text;
+  background: $q-bg;
+  overflow-x: hidden;
+}
+
+/* Синее свечение из углов, центр почти чёрный */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(70% 55% at 8% 4%, rgba(16, 52, 150, 0.85), transparent 60%),
+    radial-gradient(75% 60% at 92% 100%, rgba(20, 62, 180, 0.9), transparent 62%),
+    radial-gradient(60% 50% at 95% 10%, rgba(9, 32, 96, 0.7), transparent 60%),
+    linear-gradient(160deg, $q-bg-deep 0%, $q-bg 45%, #061a4d 100%);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}

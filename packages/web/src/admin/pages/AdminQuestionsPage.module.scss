@@ -1,0 +1,30 @@
+@use '../../styles/variables' as *;
+
+.room {
+  font-weight: 600;
+}
+
+/* Сколько команд получит именно этот вариант; наведение показывает их имена */
+.teams {
+  width: 1%;
+  white-space: nowrap;
+  cursor: help;
+}
+
+/* Сколько вариантов вопроса стоит в этой аудитории; при одном отметки нет */
+.variants {
+  margin-left: $space-1;
+  color: $color-muted;
+  font-weight: 500;
+}
+
+/* Два значка и ни пикселя лишнего: графа стоит между типом и аудиториями */
+.flags {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.content {
+  background: $color-bg;
+  padding: $space-4;
+}
